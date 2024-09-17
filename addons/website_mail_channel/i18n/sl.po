@@ -6,15 +6,15 @@
 # Martin Trigaux, 2019
 # Matjaz Mozetic <m.mozetic@matmoz.si>, 2019
 # Dejan Sraka <dejan.sraka@picolabs.si>, 2019
-# Jasmina Macur <jasmina@hbs.si>, 2019
+# Jasmina Macur <jasmina@hbs.si>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-09 10:32+0000\n"
+"POT-Creation-Date: 2019-11-14 07:35+0000\n"
 "PO-Revision-Date: 2018-08-24 09:34+0000\n"
-"Last-Translator: Jasmina Macur <jasmina@hbs.si>, 2019\n"
+"Last-Translator: Jasmina Macur <jasmina@hbs.si>, 2021\n"
 "Language-Team: Slovenian (https://www.transifex.com/odoo/teams/41243/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -344,11 +344,16 @@ msgstr "Sprememba seznama razprav"
 #. module: website_mail_channel
 #: model:mail.template,subject:website_mail_channel.mail_template_list_subscribe
 msgid "Confirm subscription to ${object.name}"
-msgstr ""
+msgstr "Potrdite naročnino na ${object.name}"
 
 #. module: website_mail_channel
 #: model:mail.template,subject:website_mail_channel.mail_template_list_unsubscribe
 msgid "Confirm unsubscription to ${object.name}"
+msgstr ""
+
+#. module: website_mail_channel
+#: model:ir.model,name:website_mail_channel.model_mail_channel
+msgid "Discussion Channel"
 msgstr ""
 
 #. module: website_mail_channel
@@ -357,11 +362,6 @@ msgstr ""
 #, python-format
 msgid "Discussion List"
 msgstr "Seznam razprav"
-
-#. module: website_mail_channel
-#: model:ir.model,name:website_mail_channel.model_mail_channel
-msgid "Discussion Channel"
-msgstr ""
 
 #. module: website_mail_channel
 #: model_terms:ir.ui.view,arch_db:website_mail_channel.group_message
@@ -453,7 +453,7 @@ msgstr "Prav ste imeli"
 #. module: website_mail_channel
 #: model_terms:ir.ui.view,arch_db:website_mail_channel.subscribe
 msgid "a confirmation email has been sent."
-msgstr ""
+msgstr "potrditvena e-pošta je bila poslana"
 
 #. module: website_mail_channel
 #: model_terms:ir.ui.view,arch_db:website_mail_channel.group_message

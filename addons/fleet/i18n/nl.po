@@ -321,7 +321,7 @@ msgstr "Compact"
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__company_id
 msgid "Company"
-msgstr "Bedijf"
+msgstr "Bedrijf"
 
 #. module: fleet
 #: model:ir.ui.menu,name:fleet.fleet_configuration
@@ -2387,6 +2387,14 @@ msgid "You can define several models (e.g. A3, A4) for each make (Audi)."
 msgstr ""
 "U kunt verschillende modellen (bijv. A3, A4) voor elk merk (bijv. Audi) "
 "definiëren."
+
+#. module: fleet
+#: code:addons/fleet/models/fleet_vehicle_cost.py:76
+#, python-format
+msgid ""
+"You cannot delete an activation cost linked to a contract. You should delete"
+" the contract instead."
+msgstr ""
 
 #. module: fleet
 #: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_log_contract_view_form

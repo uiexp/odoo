@@ -13,16 +13,17 @@
 # Nguyen Quang Toan <nqtoan@dqn.vn>, 2019
 # Nancy Momoland <thanhnguyen.icsc@gmail.com>, 2019
 # Dung Nguyen Thi <dungnt@trobz.com>, 2019
-# Duy BQ <duybq86@gmail.com>, 2019
-# Chinh Chinh <trinhttp@trobz.com>, 2019
+# Trinh Tran Thi Phuong <trinhttp@trobz.com>, 2019
+# Duy BQ <duybq86@gmail.com>, 2020
+# Trần Hà <tranthuha13590@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-08 13:35+0000\n"
+"POT-Creation-Date: 2019-11-14 07:34+0000\n"
 "PO-Revision-Date: 2018-08-24 09:24+0000\n"
-"Last-Translator: Chinh Chinh <trinhttp@trobz.com>, 2019\n"
+"Last-Translator: Trần Hà <tranthuha13590@gmail.com>, 2021\n"
 "Language-Team: Vietnamese (https://www.transifex.com/odoo/teams/41243/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -120,7 +121,7 @@ msgid ""
 msgstr ""
 "<div style=\"margin: 0px; padding: 0px;\">\n"
 "    <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
-"        % set doc_name = 'quotation' if object.state in ('draft', 'sent') else 'order'\n"
+"        % set doc_name = 'báo giá' if object.state in ('draft', 'sent') else 'đơn hàng'\n"
 "        Xin chào ${object.partner_id.name}\n"
 "        % if object.partner_id.parent_id:\n"
 "            (${object.partner_id.parent_id.name})\n"
@@ -128,7 +129,7 @@ msgstr ""
 "        <br/><br/>\n"
 "        Đây là\n"
 "        % if ctx.get('proforma')\n"
-"            đính kèm với hóa đơn chiếu tệ\n"
+"            đính kèm với hóa đơn dự toán\n"
 "        % else\n"
 "            ${doc_name} <strong>${object.name}</strong>\n"
 "        % endif\n"
@@ -138,7 +139,7 @@ msgstr ""
 "        số tiền trên <strong>${format_amount(object.amount_total, object.pricelist_id.currency_id)}</strong>\n"
 "        từ ${object.company_id.name}.\n"
 "        <br/><br/>\n"
-"        Đừng ngần ngại liên hệ chúng tôi nếu có câu hỏi nào.\n"
+"        Đừng ngần ngại liên hệ chúng tôi nếu bạn có bất kỳ câu hỏi nào.\n"
 "    </p>\n"
 "</div>\n"
 "            "
@@ -630,7 +631,6 @@ msgstr "Cho phép bạn gửi hoá đơn Chiếu lệ"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_content
 msgid "Amount"
 msgstr "Tổng tiền"
 
@@ -638,6 +638,12 @@ msgstr "Tổng tiền"
 #: model:ir.model.fields,field_description:sale.field_sale_order__amount_undiscounted
 msgid "Amount Before Discount"
 msgstr "Tổng Trước Chiết khấu"
+
+#. module: sale
+#: code:addons/sale/models/payment.py:90
+#, python-format
+msgid "Amount Mismatch (%s)"
+msgstr "Số tiền không khớp (%s)"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_crm_team__quotations_amount
@@ -3685,6 +3691,16 @@ msgstr ""
 "form sản phẩm."
 
 #. module: sale
+#: code:addons/sale/models/payment.py:97
+#, python-format
+msgid ""
+"The order was not confirmed despite response from the acquirer (%s): order "
+"total is %r but acquirer replied with %r."
+msgstr ""
+"The order was not confirmed despite response from the acquirer (%s): order "
+"total is %r but acquirer replied with %r."
+
+#. module: sale
 #: model:ir.model.fields,help:sale.field_sale_order__reference
 msgid "The payment communication of this sale order."
 msgstr "Các giao tiếp thanh toán của lệnh bán này."
@@ -3927,7 +3943,6 @@ msgstr "Tổng"
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.report_all_channels_sales_view_pivot
 #: model_terms:ir.ui.view,arch_db:sale.report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_content
 msgid "Total Price"
 msgstr "Giá tổng"
 

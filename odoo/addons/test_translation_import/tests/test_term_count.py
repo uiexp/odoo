@@ -137,7 +137,7 @@ class TestTermCount(common.TransactionCase):
     def test_import_from_po_file(self):
         """Test the import from a single po file works"""
         with file_open('test_translation_import/i18n/tlh.po', 'rb') as f:
-            po_file = base64.encodestring(f.read())
+            po_file = base64.encodebytes(f.read())
 
         import_tlh = self.env["base.language.import"].create({
             'name': 'Klingon',
@@ -160,7 +160,7 @@ class TestTermCount(common.TransactionCase):
     def test_import_from_csv_file(self):
         """Test the import from a single CSV file works"""
         with file_open('test_translation_import/i18n/dot.csv', 'rb') as f:
-            po_file = base64.encodestring(f.read())
+            po_file = base64.encodebytes(f.read())
 
         import_tlh = self.env["base.language.import"].create({
             'name': 'Dothraki',
@@ -187,7 +187,7 @@ class TestTranslationFlow(common.TransactionCase):
         """ Ensure export+import gives the same result as loading a language """
         # load language and generate missing terms to create missing empty terms
         with mute_logger('odoo.addons.base.models.ir_translation'):
-            self.env["base.language.install"].create({'lang': 'fr_FR'}).lang_install()
+            self.env["base.language.install"].create({'lang': 'fr_FR', 'overwrite': True}).lang_install()
         self.env["base.update.translations"].create({'lang': 'fr_FR'}).act_update()
 
         translations = self.env["ir.translation"].search([

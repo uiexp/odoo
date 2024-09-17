@@ -7,14 +7,15 @@
 # aleksandar ivanov, 2019
 # Albena Mincheva <albena_vicheva@abv.bg>, 2019
 # Maria Boyadjieva <marabo2000@gmail.com>, 2019
+# Igor Sheludko <igor.sheludko@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server saas~11.5\n"
+"Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-21 13:17+0000\n"
+"POT-Creation-Date: 2019-11-14 07:33+0000\n"
 "PO-Revision-Date: 2018-08-24 09:15+0000\n"
-"Last-Translator: Maria Boyadjieva <marabo2000@gmail.com>, 2019\n"
+"Last-Translator: Igor Sheludko <igor.sheludko@gmail.com>, 2020\n"
 "Language-Team: Bulgarian (https://www.transifex.com/odoo/teams/41243/bg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -50,6 +51,8 @@ msgid ""
 "Adjust the margins of generated checks to make it fit your printer's "
 "settings."
 msgstr ""
+"Настройка полета на генерираните бележки за да пасне на настройките на Вашия"
+" принтер."
 
 #. module: account_check_printing
 #: model:ir.model.fields,field_description:account_check_printing.field_account_payment__check_amount_in_words
@@ -159,7 +162,7 @@ msgstr ""
 #. module: account_check_printing
 #: model:ir.model,name:account_check_printing.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Конфиг Настройки"
 
 #. module: account_check_printing
 #: model:ir.model.fields,field_description:account_check_printing.field_print_prenumbered_checks__create_uid
@@ -273,7 +276,7 @@ msgstr ""
 #. module: account_check_printing
 #: model_terms:ir.ui.view,arch_db:account_check_printing.print_pre_numbered_checks_view
 msgid "Print"
-msgstr "Разпечатайте"
+msgstr "Печат"
 
 #. module: account_check_printing
 #: model_terms:ir.ui.view,arch_db:account_check_printing.view_account_payment_form_inherited
@@ -303,6 +306,11 @@ msgstr "Отпечатайте предварително номерирани �
 #: model:ir.model,name:account_check_printing.model_account_register_payments
 msgid "Register Payments"
 msgstr "Регистрирай плащания"
+
+#. module: account_check_printing
+#: model_terms:ir.ui.view,arch_db:account_check_printing.view_account_payment_form_inherited
+msgid "Reset Amount in Words"
+msgstr ""
 
 #. module: account_check_printing
 #: model:ir.model.fields,field_description:account_check_printing.field_res_company__account_check_printing_margin_right

@@ -14,16 +14,16 @@
 # Eloïse Stilmant <est@odoo.com>, 2018
 # Martin Trigaux, 2018
 # Moka Tourisme <hello@mokatourisme.fr>, 2019
-# Cécile Collart <cco@odoo.com>, 2019
 # Inès Gérardy <ige@odoo.com>, 2019
+# Cécile Collart <cco@odoo.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-09 10:32+0000\n"
+"POT-Creation-Date: 2019-11-14 07:35+0000\n"
 "PO-Revision-Date: 2018-08-24 09:34+0000\n"
-"Last-Translator: Inès Gérardy <ige@odoo.com>, 2019\n"
+"Last-Translator: Cécile Collart <cco@odoo.com>, 2020\n"
 "Language-Team: French (https://www.transifex.com/odoo/teams/41243/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -228,6 +228,13 @@ msgstr "<span>Illimité</span>"
 
 #. module: website_event
 #: model_terms:ir.ui.view,arch_db:website_event.registration_attendee_details
+msgid "<strong> You ordered more tickets than available seats</strong>"
+msgstr ""
+"<strong>Vous avez commandé plus de tickets que de places "
+"disponibles</strong>"
+
+#. module: website_event
+#: model_terms:ir.ui.view,arch_db:website_event.registration_attendee_details
 msgid "<strong>Attendees</strong>"
 msgstr "<strong>Participants</strong>"
 
@@ -289,6 +296,11 @@ msgid "Attendee #%s"
 msgstr "Participants #%s"
 
 #. module: website_event
+#: model_terms:ir.ui.view,arch_db:website_event.registration_template
+msgid "Available seats: "
+msgstr "Places disponibles :"
+
+#. module: website_event
 #: model_terms:ir.ui.view,arch_db:website_event.registration_attendee_details
 msgid "Cancel Registration"
 msgstr "Annuler l'inscription"
@@ -331,6 +343,7 @@ msgid "Click to publish your event."
 msgstr "Cliquez pour publier votre événement."
 
 #. module: website_event
+#: model_terms:ir.ui.view,arch_db:website_event.layout
 #: model_terms:ir.ui.view,arch_db:website_event.registration_attendee_details
 msgid "Close"
 msgstr "Fermer"
@@ -474,6 +487,11 @@ msgid ""
 msgstr ""
 "Découvrez ce que les gens pensent et disent à propos de cet événement,\n"
 "et rejoignez la conversation."
+
+#. module: website_event
+#: model_terms:ir.ui.view,arch_db:website_event.layout
+msgid "Following content will appear on all events"
+msgstr "Le contenu suivant apparaitra sur tous les événements"
 
 #. module: website_event
 #: model_terms:ir.ui.view,arch_db:website_event.event_description_full

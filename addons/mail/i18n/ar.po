@@ -29,14 +29,15 @@
 # husseinAliPVG <hussein.ali@pioneervision.com>, 2018
 # Amer Hazaa <eng.amer.it@gmail.com>, 2018
 # Mustafa Rawi <mustafa@cubexco.com>, 2019
+# Mustafa J. Kadhem <safi2266@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-08 13:50+0000\n"
+"POT-Creation-Date: 2019-11-14 07:34+0000\n"
 "PO-Revision-Date: 2018-08-24 09:20+0000\n"
-"Last-Translator: Mustafa Rawi <mustafa@cubexco.com>, 2019\n"
+"Last-Translator: Mustafa J. Kadhem <safi2266@gmail.com>, 2021\n"
 "Language-Team: Arabic (https://www.transifex.com/odoo/teams/41243/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1093,6 +1094,12 @@ msgid "Call"
 msgstr "مكالمة"
 
 #. module: mail
+#: code:addons/mail/models/mail_notification.py:57
+#, python-format
+msgid "Can not update the message or recipient of a notification."
+msgstr ""
+
+#. module: mail
 #. openerp-web
 #: code:addons/mail/static/src/js/followers.js:365
 #: code:addons/mail/static/src/xml/activity.xml:86
@@ -1827,6 +1834,13 @@ msgstr "اسم المستند"
 
 #. module: mail
 #. openerp-web
+#: code:addons/mail/static/src/xml/thread.xml:524
+#, python-format
+msgid "Document not downloadable"
+msgstr ""
+
+#. module: mail
+#. openerp-web
 #: code:addons/mail/static/src/xml/activity.xml:101
 #, python-format
 msgid "Done"
@@ -2322,10 +2336,16 @@ msgid "Following"
 msgstr "تتابعه"
 
 #. module: mail
+#: code:addons/mail/models/mail_channel.py:778
+#, python-format
+msgid "Following invites are invalid as user groups do not match: %s"
+msgstr ""
+
+#. module: mail
 #: model:ir.model.fields,help:mail.field_mail_activity__icon
 #: model:ir.model.fields,help:mail.field_mail_activity_type__icon
 msgid "Font awesome icon e.g. fa-tasks"
-msgstr ""
+msgstr "Font awesome icon e.g. fa-tasks"
 
 #. module: mail
 #: selection:ir.actions.act_window.view,view_mode:0
@@ -3251,6 +3271,13 @@ msgid "Mark as done"
 msgstr "تحديد كمنتهي"
 
 #. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/xml/thread.xml:300
+#, python-format
+msgid "Mark as todo"
+msgstr ""
+
+#. module: mail
 #: model:ir.ui.menu,name:mail.mail_blacklist_menu
 msgid "Mass Mail Blacklist"
 msgstr "القائمة السوداء للمراسلات الجماعية"
@@ -4027,6 +4054,18 @@ msgstr "متابع وحيد"
 #, python-format
 msgid "Online"
 msgstr "متصل"
+
+#. module: mail
+#: code:addons/mail/models/mail_message.py:1052
+#, python-format
+msgid "Only administrators are allowed to export mail message"
+msgstr ""
+
+#. module: mail
+#: code:addons/mail/models/mail_message.py:1043
+#, python-format
+msgid "Only administrators are allowed to use grouped read on message model"
+msgstr ""
 
 #. module: mail
 #: code:addons/mail/models/mail_channel.py:436
@@ -4944,6 +4983,13 @@ msgstr "إرسال رسالة"
 
 #. module: mail
 #. openerp-web
+#: code:addons/mail/static/src/xml/discuss.xml:141
+#, python-format
+msgid "Send by mail"
+msgstr ""
+
+#. module: mail
+#. openerp-web
 #: code:addons/mail/static/src/js/discuss.js:145
 #, python-format
 msgid "Send explanation to author"
@@ -5333,6 +5379,12 @@ msgstr ""
 "بعنوان البريد الإلكتروني."
 
 #. module: mail
+#: code:addons/mail/models/mail_channel.py:0
+#, python-format
+msgid "The partner can not join this channel"
+msgstr ""
+
+#. module: mail
 #: code:addons/mail/models/mail_activity.py:243
 #: code:addons/mail/models/mail_message.py:704
 #: code:addons/mail/models/mail_message.py:874
@@ -5534,19 +5586,13 @@ msgstr "نوع التأخير"
 msgid ""
 "Type of server action. The following values are available:\n"
 "- 'Execute Python Code': a block of python code that will be executed\n"
-"- 'Create or Copy a new Record': create a new record with new values, or copy an existing record in your database\n"
-"- 'Write on a Record': update the values of a record\n"
+"- 'Create': create a new record with new values\n"
+"- 'Update a Record': update the values of a record\n"
 "- 'Execute several actions': define an action that triggers several other server actions\n"
-"- 'Add Followers': add followers to a record (available in Discuss)\n"
-"- 'Send Email': automatically send an email (available in email_template)"
+"- 'Send Email': automatically send an email (Discuss)\n"
+"- 'Add Followers': add followers to a record (Discuss)\n"
+"- 'Create Next Activity': create an activity (Discuss)"
 msgstr ""
-"نوع إجراء السيرفر. القيم التالية متاحة:\n"
-"- 'تنفيذ كود بايثون': فقرة كود بايثون سيتم تنفيذها\n"
-"- 'إنشاء أو نسخ سجل جديد': ينشئ سجل جديد بقيم جديدة، أو ينسخ سجل موجود في قاعدة بياناتك\n"
-"- 'الكتابة في سجل': يحدث قيم سجل\n"
-"- 'تنفيذ عدة إجراءات': يحدد إجراء سيفعل عدة إجراءات سيرفر أخرى\n"
-"- 'إضافة تابعين': يضيف تابعين لسجل (متاح في المناقشة)\n"
-"- 'إرسال بريد إلكتروني': يرسل رسالة بريد إلكتروني تلقائيًا (متاح في email_template)"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_channel__uuid
@@ -5764,6 +5810,29 @@ msgstr "المستخدم"
 #: model:ir.model.fields,field_description:mail.field_ir_actions_server__activity_user_field_name
 msgid "User field name"
 msgstr "اسم حقل المستخدم"
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/xml/discuss.xml:157
+#: code:addons/mail/static/src/xml/discuss.xml:278
+#, python-format
+msgid "User is idle"
+msgstr ""
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/xml/discuss.xml:158
+#, python-format
+msgid "User is offline"
+msgstr ""
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/xml/discuss.xml:156
+#: code:addons/mail/static/src/xml/discuss.xml:277
+#, python-format
+msgid "User is online"
+msgstr ""
 
 #. module: mail
 #. openerp-web
@@ -6007,6 +6076,13 @@ msgstr "أنت في القناة <b>#%s</b>."
 
 #. module: mail
 #. openerp-web
+#: code:addons/mail/static/src/js/attachment_box.js:132
+#, python-format
+msgid "You are not allowed to upload an attachment here."
+msgstr ""
+
+#. module: mail
+#. openerp-web
 #: code:addons/mail/static/src/js/discuss.js:338
 #, python-format
 msgid ""
@@ -6021,6 +6097,24 @@ msgstr "أنت مدير هذه القناة. هل أنت متأكد أنك تر�
 msgid ""
 "You can mark any message as 'starred', and it shows up in this mailbox."
 msgstr "يمكنك تمييز أي رسالة من خلال 'نجمة'، وسوف تظهر في صندوق البريد."
+
+#. module: mail
+#: cod:addons/mail/models/mail_channel.py:0
+#, python-format
+msgid "You can not remove this partner from this channel"
+msgstr ""
+
+#. module: mail
+#: code:addons/mail/models/mail_channel.py:0
+#, python-format
+msgid "You can not write on the record of other users"
+msgstr ""
+
+#. module: mail
+#: code:addons/mail/models/mail_channel.py:0
+#, python-format
+msgid "You can not write on this field"
+msgstr ""
 
 #. module: mail
 #: code:addons/mail/models/res_users.py:87
@@ -6041,6 +6135,14 @@ msgid ""
 msgstr ""
 "لا يمكنك حذف هذه المجموعات، لوجود موديولات أخرى تعتمد على مجموعة الشركة "
 "الكاملة."
+
+#. module: mail
+#: code:addons/mail/models/mail_alias.py:89
+#, python-format
+msgid ""
+"You cannot use anything else than unaccented latin characters in the alias "
+"address."
+msgstr ""
 
 #. module: mail
 #: code:addons/mail/models/mail_channel.py:257
@@ -6065,8 +6167,8 @@ msgstr "تم تعيينك لـ"
 #. openerp-web
 #: code:addons/mail/static/src/js/services/mail_notification_manager.js:198
 #, python-format
-msgid "You have been invited to: "
-msgstr "تمت دعوتك إلى: "
+msgid "You have been invited to: %s"
+msgstr ""
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_channel_notify_moderation
@@ -6451,15 +6553,23 @@ msgid "to close for"
 msgstr "للإغلاق"
 
 #. module: mail
-#: code:addons/mail/models/mail_thread.py:1074
+#: code:addons/mail/models/mail_thread.py:1081
 #, python-format
 msgid "unknown error"
 msgstr "خطأ غير معروف"
 
 #. module: mail
-#: code:addons/mail/models/mail_thread.py:1014
+#: code:addons/mail/models/mail_thread.py:1021
 #, python-format
 msgid "unknown target model %s"
+msgstr ""
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/js/attachment_box.js:40
+#: code:addons/mail/static/src/js/models/messages/abstract_message.js:52
+#, python-format
+msgid "unnamed"
 msgstr ""
 
 #. module: mail

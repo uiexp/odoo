@@ -436,7 +436,7 @@
                     <div class="oe_title pr-0">
                         <h1 class="d-flex flex-row justify-content-between">
                             <field name="priority" widget="priority" class="mr-3"/>
-                            <field name="name" class="o_task_name text-truncate" placeholder="Task Title..."/>
+                            <field name="name" class="o_task_name text-truncate" placeholder="Task Title..." default_focus="1" />
                             <field name="kanban_state" widget="state_selection" class="ml-auto"/>
                         </h1>
                     </div>
@@ -467,7 +467,12 @@
                                     <field name="partner_id" attrs="{'readonly': [('parent_id', '!=', False)]}"/>
                                     <field name="email_from" attrs="{'readonly': [('parent_id', '!=', False)]}"/>
                                     <field name="email_cc" groups="base.group_no_one"/>
-                                    <field name="parent_id" attrs="{'invisible' : [('subtask_count', '>', 0)]}" groups="project.group_subtask_project"/>
+                                    <field
+                                        name="parent_id"
+                                        domain="[('parent_id', '=', False)]"
+                                        attrs="{'invisible' : [('subtask_count', '>', 0)]}"
+                                        groups="project.group_subtask_project"
+                                    />
                                     <field name="child_ids" invisible="1" />
                                     <field name="subtask_project_id" invisible="1" />
                                     <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>

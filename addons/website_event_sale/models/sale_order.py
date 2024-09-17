@@ -56,6 +56,17 @@ class SaleOrder(models.Model):
     def _cart_update(self, product_id=None, line_id=None, add_qty=0, set_qty=0, **kwargs):
         OrderLine = self.env['sale.order.line']
 
+        try:
+            if add_qty:
+                add_qty = float(add_qty)
+        except ValueError:
+            add_qty = 1
+        try:
+            if set_qty:
+                set_qty = float(set_qty)
+        except ValueError:
+            set_qty = 0
+
         if line_id:
             line = OrderLine.browse(line_id)
             ticket = line.event_ticket_id
@@ -74,7 +85,7 @@ class SaleOrder(models.Model):
             values['warning'] = _('Sorry, The %(ticket)s tickets for the %(event)s event are sold out.') % {
                 'ticket': ticket.name,
                 'event': ticket.event_id.name}
-            new_qty, set_qty, add_qty = 0, 0, 0
+            new_qty, set_qty, add_qty = 0, 0, -old_qty
         # case: buying tickets, too much attendees
         elif ticket and ticket.seats_availability == 'limited' and new_qty > ticket.seats_available:
             values['warning'] = _('Sorry, only %(remaining_seats)d seats are still available for the %(ticket)s ticket for the %(event)s event.') % {

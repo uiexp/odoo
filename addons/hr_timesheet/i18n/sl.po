@@ -223,7 +223,7 @@ msgstr "Trajanje (%s)"
 #. module: hr_timesheet
 #: model:ir.model.fields,field_description:hr_timesheet.field_report_project_task_user__hours_effective
 msgid "Effective Hours"
-msgstr "Efektivne ure"
+msgstr "Učinkovite ure"
 
 #. module: hr_timesheet
 #: model:ir.model,name:hr_timesheet.model_hr_employee
@@ -303,7 +303,7 @@ msgstr "Moje časovnice"
 #. module: hr_timesheet
 #: model:ir.model.fields,field_description:hr_timesheet.field_report_project_task_user__hours_planned
 msgid "Planned Hours"
-msgstr "Načrovane ure"
+msgstr "Načrtovane ure"
 
 #. module: hr_timesheet
 #: code:addons/hr_timesheet/models/analytic_account.py:28
@@ -405,7 +405,7 @@ msgstr "Porabljene ure"
 #. module: hr_timesheet
 #: model:ir.model.fields,field_description:hr_timesheet.field_project_task__subtask_effective_hours
 msgid "Sub-tasks Hours Spent"
-msgstr ""
+msgstr "Porabljenje ure na podopravilih"
 
 #. module: hr_timesheet
 #: model:ir.model.fields,help:hr_timesheet.field_project_task__subtask_effective_hours
@@ -598,8 +598,16 @@ msgid ""
 "                customers if required."
 msgstr ""
 "Delovne ure po projektu lahko knjižite in spremljate vsak dan.\n"
-"                day. Čas porabljen na projektu postane strošek in se lahko\n"
+"                Čas porabljen na projektu postane strošek in se lahko\n"
 "                po potrebi zaračuna kupcu."
+
+#. module: hr_timesheet
+#: code:addons/hr_timesheet/models/analytic_account.py:53
+#, python-format
+msgid ""
+"You cannot change the company of an analytical account if it is related to a"
+" project."
+msgstr ""
 
 #. module: hr_timesheet
 #: model_terms:ir.ui.view,arch_db:hr_timesheet.hr_employee_view_form_inherit_timesheet

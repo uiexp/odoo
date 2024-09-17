@@ -234,7 +234,7 @@ class WebsiteSale(ProductConfiguratorController):
 
         Category = request.env['product.public.category']
         search_categories = False
-        search_product = Product.search(domain)
+        search_product = Product.search(domain, order=self._get_search_order(post))
         if search:
             categories = search_product.mapped('public_categ_ids')
             search_categories = Category.search([('id', 'parent_of', categories.ids)] + request.website.website_domain())
@@ -253,12 +253,15 @@ class WebsiteSale(ProductConfiguratorController):
 
         product_count = len(search_product)
         pager = request.website.pager(url=url, total=product_count, page=page, step=ppg, scope=7, url_args=post)
-        products = Product.search(domain, limit=ppg, offset=pager['offset'], order=self._get_search_order(post))
+        offset = pager['offset']
+        products = search_product[offset: offset + ppg]
 
         ProductAttribute = request.env['product.attribute']
         if products:
-            # get all products without limit
-            attributes = ProductAttribute.search([('attribute_line_ids.value_ids', '!=', False), ('attribute_line_ids.product_tmpl_id', 'in', search_product.ids)])        
+            attributes = ProductAttribute.search([
+                ('attribute_line_ids.value_ids', '!=', False),
+                ('attribute_line_ids.product_tmpl_id', 'in', search_product.ids)
+            ])
         else:
             attributes = ProductAttribute.browse(attributes_ids)
 
@@ -386,6 +389,8 @@ class WebsiteSale(ProductConfiguratorController):
                 values.update({'access_token': abandoned_order.access_token})
 
         if order:
+            # Removing the archived products from the cart
+            order.order_line.filtered(lambda l: not l.product_id.active).unlink()
             from_currency = order.company_id.currency_id
             to_currency = order.pricelist_id.currency_id
             compute_currency = lambda price: from_currency._convert(
@@ -510,9 +515,6 @@ class WebsiteSale(ProductConfiguratorController):
                         partner_id = int(kw.get('partner_id'))
                     if partner_id in shippings.mapped('id'):
                         order.partner_shipping_id = partner_id
-                elif not order.partner_shipping_id:
-                    last_order = request.env['sale.order'].sudo().search([("partner_id", "=", order.partner_id.id)], order='id desc', limit=1)
-                    order.partner_shipping_id.id = last_order and last_order.id
 
         values = {
             'order': order,

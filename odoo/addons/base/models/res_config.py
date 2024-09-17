@@ -584,7 +584,7 @@ class ResConfigSettings(models.TransientModel, ResConfigModuleInstallationMixin)
                     groups.write({'implied_ids': [(4, implied_group.id)]})
                 else:
                     groups.write({'implied_ids': [(3, implied_group.id)]})
-                    implied_group.write({'users': [(3, user.id) for user in groups.mapped('users')]})
+                    implied_group.sudo().write({'users': [(5,)]})
         self.recompute()
 
         # config fields: store ir.config_parameters
@@ -606,7 +606,7 @@ class ResConfigSettings(models.TransientModel, ResConfigModuleInstallationMixin)
         # other fields: execute method 'set_values'
         # Methods that start with `set_` are now deprecated
         for method in dir(self):
-            if method.startswith('set_') and method is not 'set_values':
+            if method.startswith('set_') and method != 'set_values':
                 _logger.warning(_('Methods that start with `set_` are deprecated. Override `set_values` instead (Method %s)') % method)
 
     @api.multi

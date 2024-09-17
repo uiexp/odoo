@@ -17,14 +17,15 @@
 # digitouch UAB <digitouchagencyeur@gmail.com>, 2018
 # Linas Versada <linaskrisiukenas@gmail.com>, 2019
 # Martin Trigaux, 2019
+# Jonas Zinkevicius <jozi@odoo.com>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-08 13:50+0000\n"
+"POT-Creation-Date: 2019-11-14 07:34+0000\n"
 "PO-Revision-Date: 2018-08-24 09:20+0000\n"
-"Last-Translator: Martin Trigaux, 2019\n"
+"Last-Translator: Jonas Zinkevicius <jozi@odoo.com>, 2021\n"
 "Language-Team: Lithuanian (https://www.transifex.com/odoo/teams/41243/lt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1085,6 +1086,12 @@ msgid "Call"
 msgstr "Skambutis"
 
 #. module: mail
+#: code:addons/mail/models/mail_notification.py:57
+#, python-format
+msgid "Can not update the message or recipient of a notification."
+msgstr ""
+
+#. module: mail
 #. openerp-web
 #: code:addons/mail/static/src/js/followers.js:365
 #: code:addons/mail/static/src/xml/activity.xml:86
@@ -1731,7 +1738,7 @@ msgstr "Diskusija"
 #. module: mail
 #: model:ir.model,name:mail.model_mail_channel
 msgid "Discussion Channel"
-msgstr ""
+msgstr "Diskusijų kanalas"
 
 #. module: mail
 #: model:mail.message.subtype,name:mail.mt_comment
@@ -1822,6 +1829,13 @@ msgstr "Dokumento modelis"
 #: model:ir.model.fields,field_description:mail.field_mail_activity__res_name
 msgid "Document Name"
 msgstr "Dokumento pavadinimas"
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/xml/thread.xml:524
+#, python-format
+msgid "Document not downloadable"
+msgstr ""
 
 #. module: mail
 #. openerp-web
@@ -2319,6 +2333,12 @@ msgstr "Tik prenumeratoriams"
 #, python-format
 msgid "Following"
 msgstr "Seka"
+
+#. module: mail
+#: code:addons/mail/models/mail_channel.py:778
+#, python-format
+msgid "Following invites are invalid as user groups do not match: %s"
+msgstr ""
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_activity__icon
@@ -3261,6 +3281,13 @@ msgid "Mark as done"
 msgstr "Pažymėti kaip atliktą"
 
 #. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/xml/thread.xml:300
+#, python-format
+msgid "Mark as todo"
+msgstr ""
+
+#. module: mail
 #: model:ir.ui.menu,name:mail.mail_blacklist_menu
 msgid "Mass Mail Blacklist"
 msgstr "Masinio pašto juodasis sąrašas"
@@ -4046,6 +4073,18 @@ msgstr "Vienas sekėjas"
 #, python-format
 msgid "Online"
 msgstr "Prisijungęs"
+
+#. module: mail
+#: code:addons/mail/models/mail_message.py:1052
+#, python-format
+msgid "Only administrators are allowed to export mail message"
+msgstr ""
+
+#. module: mail
+#: code:addons/mail/models/mail_message.py:1043
+#, python-format
+msgid "Only administrators are allowed to use grouped read on message model"
+msgstr ""
 
 #. module: mail
 #: code:addons/mail/models/mail_channel.py:436
@@ -4972,6 +5011,13 @@ msgstr "Rašyti žinutę"
 
 #. module: mail
 #. openerp-web
+#: code:addons/mail/static/src/xml/discuss.xml:141
+#, python-format
+msgid "Send by mail"
+msgstr ""
+
+#. module: mail
+#. openerp-web
 #: code:addons/mail/static/src/js/discuss.js:145
 #, python-format
 msgid "Send explanation to author"
@@ -5364,6 +5410,12 @@ msgstr ""
 "sistemoje nerandamas vartotojas."
 
 #. module: mail
+#: code:addons/mail/models/mail_channel.py:0
+#, python-format
+msgid "The partner can not join this channel"
+msgstr ""
+
+#. module: mail
 #: code:addons/mail/models/mail_activity.py:243
 #: code:addons/mail/models/mail_message.py:704
 #: code:addons/mail/models/mail_message.py:874
@@ -5566,19 +5618,13 @@ msgstr "Vėlavimo tipas"
 msgid ""
 "Type of server action. The following values are available:\n"
 "- 'Execute Python Code': a block of python code that will be executed\n"
-"- 'Create or Copy a new Record': create a new record with new values, or copy an existing record in your database\n"
-"- 'Write on a Record': update the values of a record\n"
+"- 'Create': create a new record with new values\n"
+"- 'Update a Record': update the values of a record\n"
 "- 'Execute several actions': define an action that triggers several other server actions\n"
-"- 'Add Followers': add followers to a record (available in Discuss)\n"
-"- 'Send Email': automatically send an email (available in email_template)"
+"- 'Send Email': automatically send an email (Discuss)\n"
+"- 'Add Followers': add followers to a record (Discuss)\n"
+"- 'Create Next Activity': create an activity (Discuss)"
 msgstr ""
-"Serverio veiksmo tipas. Galimos šios reikšmės:\n"
-"- \"Vykdyti Python kodą\": bus įvykdomas Python kodas\n"
-"- \"Kurti ar kopijuoti naują įrašą\": kuriamas naujas įrašas su naujomis reikšmėmis arba kopijuojamas egzistuojantis duomenų bazės įrašas\n"
-"- \"Rašyti įraše\": atnaujinamos įrašo reikšmės\n"
-"- \"Vykdyti kelis veiksmus\": nustatomas veiksmas, kuris iššaukia kelis kitus serverio veiksmus\n"
-"- \"Pridėti sekėjų\": prie įrašo pridedami sekėjai (pasiekiama Diskusijoje)\n"
-"- \"Siųsti laišką\": automatiškai siunčiamas laiškas (pasiekiama email_template)"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_channel__uuid
@@ -5797,6 +5843,29 @@ msgstr "Vartotojas"
 #: model:ir.model.fields,field_description:mail.field_ir_actions_server__activity_user_field_name
 msgid "User field name"
 msgstr "Vartotojo lauko pavadinimas"
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/xml/discuss.xml:157
+#: code:addons/mail/static/src/xml/discuss.xml:278
+#, python-format
+msgid "User is idle"
+msgstr ""
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/xml/discuss.xml:158
+#, python-format
+msgid "User is offline"
+msgstr ""
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/xml/discuss.xml:156
+#: code:addons/mail/static/src/xml/discuss.xml:277
+#, python-format
+msgid "User is online"
+msgstr ""
 
 #. module: mail
 #. openerp-web
@@ -6045,6 +6114,13 @@ msgstr "Esate <b>#%s</b> kanale."
 
 #. module: mail
 #. openerp-web
+#: code:addons/mail/static/src/js/attachment_box.js:132
+#, python-format
+msgid "You are not allowed to upload an attachment here."
+msgstr ""
+
+#. module: mail
+#. openerp-web
 #: code:addons/mail/static/src/js/discuss.js:338
 #, python-format
 msgid ""
@@ -6061,6 +6137,24 @@ msgid ""
 "You can mark any message as 'starred', and it shows up in this mailbox."
 msgstr ""
 "Galite pažymėti bet kurią žinutę žvaigždute ir ji pasirodys šioje dėžutėje."
+
+#. module: mail
+#: cod:addons/mail/models/mail_channel.py:0
+#, python-format
+msgid "You can not remove this partner from this channel"
+msgstr ""
+
+#. module: mail
+#: code:addons/mail/models/mail_channel.py:0
+#, python-format
+msgid "You can not write on the record of other users"
+msgstr ""
+
+#. module: mail
+#: code:addons/mail/models/mail_channel.py:0
+#, python-format
+msgid "You can not write on this field"
+msgstr ""
 
 #. module: mail
 #: code:addons/mail/models/res_users.py:87
@@ -6081,6 +6175,14 @@ msgid ""
 msgstr ""
 "Jūs negalite ištrinti šitų grupių, nes grupė \"Visa įmonė\" yra reikalinga "
 "kitiems moduliams."
+
+#. module: mail
+#: code:addons/mail/models/mail_alias.py:89
+#, python-format
+msgid ""
+"You cannot use anything else than unaccented latin characters in the alias "
+"address."
+msgstr ""
 
 #. module: mail
 #: code:addons/mail/models/mail_channel.py:257
@@ -6105,8 +6207,8 @@ msgstr "Jūs buvote priskirtas"
 #. openerp-web
 #: code:addons/mail/static/src/js/services/mail_notification_manager.js:198
 #, python-format
-msgid "You have been invited to: "
-msgstr "Jūs buvote pakviestas į:"
+msgid "You have been invited to: %s"
+msgstr ""
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_channel_notify_moderation
@@ -6496,16 +6598,24 @@ msgid "to close for"
 msgstr "uždaryti"
 
 #. module: mail
-#: code:addons/mail/models/mail_thread.py:1074
+#: code:addons/mail/models/mail_thread.py:1081
 #, python-format
 msgid "unknown error"
 msgstr "nežinoma klaida"
 
 #. module: mail
-#: code:addons/mail/models/mail_thread.py:1014
+#: code:addons/mail/models/mail_thread.py:1021
 #, python-format
 msgid "unknown target model %s"
 msgstr "nežinomos paskirties modelis %s"
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/js/attachment_box.js:40
+#: code:addons/mail/static/src/js/models/messages/abstract_message.js:52
+#, python-format
+msgid "unnamed"
+msgstr ""
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.message_notification_email

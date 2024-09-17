@@ -34,5 +34,8 @@ from . import test_views
 from . import test_xmlrpc
 from . import test_res_partner
 from . import test_res_partner_bank
+from . import test_res_users
 from . import test_reports
+from . import test_test_suite
 from . import test_tests_tags
+from . import test_cloc

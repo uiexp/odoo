@@ -50,9 +50,9 @@ class QueryURL(object):
                     paths[key] = u"%s" % value
             elif value:
                 if isinstance(value, list) or isinstance(value, set):
-                    fragments.append(werkzeug.url_encode([(key, item) for item in value]))
+                    fragments.append(werkzeug.urls.url_encode([(key, item) for item in value]))
                 else:
-                    fragments.append(werkzeug.url_encode([(key, value)]))
+                    fragments.append(werkzeug.urls.url_encode([(key, value)]))
         for key in path_args:
             value = paths.get(key)
             if value is not None:
@@ -108,6 +108,7 @@ class Website(Home):
 
     @http.route('/website/lang/<lang>', type='http', auth="public", website=True, multilang=False)
     def change_lang(self, lang, r='/', **kwargs):
+        r = request.website._get_relative_url(r)
         if lang == 'default':
             lang = request.website.default_lang_code
             r = '/%s%s' % (lang, r or '/')
@@ -197,7 +198,7 @@ class Website(Home):
         try:
             request.website.get_template('website.website_info').name
         except Exception as e:
-            return request.env['ir.http']._handle_exception(e, 404)
+            return request.env['ir.http']._handle_exception(e)
         Module = request.env['ir.module.module'].sudo()
         apps = Module.search([('state', '=', 'installed'), ('application', '=', True)])
         modules = Module.search([('state', '=', 'installed'), ('application', '=', False)])
@@ -318,7 +319,7 @@ class Website(Home):
 
         return request.redirect(redirect)
 
-    @http.route(['/website/publish'], type='json', auth="public", website=True)
+    @http.route(['/website/publish'], type='json', auth="user", website=True)
     def publish(self, id, object):
         Model = request.env[object]
         record = Model.browse(int(id))
@@ -470,7 +471,7 @@ class WebsiteBinary(http.Controller):
                 kw['unique'] = unique
         return Binary().content_image(**kw)
 
-    @http.route(['/favicon.ico'], type='http', auth='public', website=True, sitemap=False)
+    @http.route(['/favicon.ico'], type='http', auth='public', website=True, multilang=False, sitemap=False)
     def favicon(self, **kw):
         # when opening a pdf in chrome, chrome tries to open the default favicon url
         return self.content_image(model='website', id=str(request.website.id), field='favicon', **kw)

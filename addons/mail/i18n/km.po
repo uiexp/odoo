@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-08 13:50+0000\n"
+"POT-Creation-Date: 2019-11-14 07:34+0000\n"
 "PO-Revision-Date: 2018-08-24 09:20+0000\n"
 "Last-Translator: Lux Sok <sok.lux@gmail.com>, 2019\n"
 "Language-Team: Khmer (https://www.transifex.com/odoo/teams/41243/km/)\n"
@@ -1036,6 +1036,12 @@ msgid "Call"
 msgstr ""
 
 #. module: mail
+#: code:addons/mail/models/mail_notification.py:57
+#, python-format
+msgid "Can not update the message or recipient of a notification."
+msgstr ""
+
+#. module: mail
 #. openerp-web
 #: code:addons/mail/static/src/js/followers.js:365
 #: code:addons/mail/static/src/xml/activity.xml:86
@@ -1762,6 +1768,13 @@ msgstr ""
 
 #. module: mail
 #. openerp-web
+#: code:addons/mail/static/src/xml/thread.xml:524
+#, python-format
+msgid "Document not downloadable"
+msgstr ""
+
+#. module: mail
+#. openerp-web
 #: code:addons/mail/static/src/xml/activity.xml:101
 #, python-format
 msgid "Done"
@@ -2248,6 +2261,12 @@ msgstr "<div></div>"
 #: code:addons/mail/static/src/xml/followers.xml:24
 #, python-format
 msgid "Following"
+msgstr ""
+
+#. module: mail
+#: code:addons/mail/models/mail_channel.py:778
+#, python-format
+msgid "Following invites are invalid as user groups do not match: %s"
 msgstr ""
 
 #. module: mail
@@ -3170,6 +3189,13 @@ msgid "Mark as done"
 msgstr ""
 
 #. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/xml/thread.xml:300
+#, python-format
+msgid "Mark as todo"
+msgstr ""
+
+#. module: mail
 #: model:ir.ui.menu,name:mail.mail_blacklist_menu
 msgid "Mass Mail Blacklist"
 msgstr ""
@@ -3934,6 +3960,18 @@ msgid "Online"
 msgstr "បើកប្រពន្ឋ័ទាក់ទង"
 
 #. module: mail
+#: code:addons/mail/models/mail_message.py:1052
+#, python-format
+msgid "Only administrators are allowed to export mail message"
+msgstr ""
+
+#. module: mail
+#: code:addons/mail/models/mail_message.py:1043
+#, python-format
+msgid "Only administrators are allowed to use grouped read on message model"
+msgstr ""
+
+#. module: mail
 #: code:addons/mail/models/mail_channel.py:436
 #, python-format
 msgid ""
@@ -4487,7 +4525,7 @@ msgstr ""
 #: code:addons/mail/static/src/xml/discuss.xml:186
 #, python-format
 msgid "Reject"
-msgstr ""
+msgstr "ការបដិសេដ"
 
 #. module: mail
 #. openerp-web
@@ -4837,6 +4875,13 @@ msgstr "ផ្ញើ​សារ​មួយ"
 
 #. module: mail
 #. openerp-web
+#: code:addons/mail/static/src/xml/discuss.xml:141
+#, python-format
+msgid "Send by mail"
+msgstr ""
+
+#. module: mail
+#. openerp-web
 #: code:addons/mail/static/src/js/discuss.js:145
 #, python-format
 msgid "Send explanation to author"
@@ -4995,7 +5040,7 @@ msgstr ""
 #: code:addons/mail/static/src/xml/thread.xml:47
 #, python-format
 msgid "Split"
-msgstr ""
+msgstr "បែងចែក"
 
 #. module: mail
 #. openerp-web
@@ -5221,6 +5266,12 @@ msgstr ""
 "ហើយប្រសិនបើមិនមានឈ្មោះប្រព័ន្ថគឺអាចបង្កើតសម្រាប់អាស័យដ្ឋានបាន។"
 
 #. module: mail
+#: code:addons/mail/models/mail_channel.py:0
+#, python-format
+msgid "The partner can not join this channel"
+msgstr ""
+
+#. module: mail
 #: code:addons/mail/models/mail_activity.py:243
 #: code:addons/mail/models/mail_message.py:704
 #: code:addons/mail/models/mail_message.py:874
@@ -5419,20 +5470,13 @@ msgstr ""
 msgid ""
 "Type of server action. The following values are available:\n"
 "- 'Execute Python Code': a block of python code that will be executed\n"
-"- 'Create or Copy a new Record': create a new record with new values, or copy an existing record in your database\n"
-"- 'Write on a Record': update the values of a record\n"
+"- 'Create': create a new record with new values\n"
+"- 'Update a Record': update the values of a record\n"
 "- 'Execute several actions': define an action that triggers several other server actions\n"
-"- 'Add Followers': add followers to a record (available in Discuss)\n"
-"- 'Send Email': automatically send an email (available in email_template)"
+"- 'Send Email': automatically send an email (Discuss)\n"
+"- 'Add Followers': add followers to a record (Discuss)\n"
+"- 'Create Next Activity': create an activity (Discuss)"
 msgstr ""
-"ប្រភេទសកម្មភាពរបស់ម៉ាស៊ីនមេ។ មានតម្លៃដូចខាងក្រោម: - 'ប្រតិបត្តិក្រម Python':"
-" ប្លុកនៃកូដ python ដែលនឹងត្រូវបានប្រតិបត្តិ - 'បង្កើតឬចំលងកំណត់ត្រាថ្មី': "
-"បង្កើតកំណត់ត្រាថ្មីមួយដែលមានតម្លៃថ្មីឬចម្លងកំណត់ត្រាដែលមានស្រាប់នៅក្នុងមូលដ្ឋានទិន្នន័យរបស់អ្នក"
-" - 'សរសេរនៅលើកំណត់ត្រាមួយ': ធ្វើឱ្យទាន់សម័យតម្លៃនៃកំណត់ត្រាមួយ - "
-"'អនុវត្តសកម្មភាពមួយចំនួន': "
-"កំណត់សកម្មភាពដែលកេះសកម្មភាពម៉ាស៊ីនមេផ្សេងទៀតជាច្រើន - 'បន្ថែមអ្នកតាមដាន': "
-"បន្ថែមអ្នកដើរតាមកំណត់ត្រា (អាចប្រើបានក្នុងការពិភាក្សា) - 'ផ្ញើអ៊ីម៉ែល': "
-"ផ្ញើដោយស្វ័យប្រវត្តិអ៊ីម៉ែលមួយ (ដែលមាននៅក្នុងអ៊ីម៉ែល - អត្ថបទ)"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_channel__uuid
@@ -5652,6 +5696,29 @@ msgstr "អ្នកប្រើប្រាស់"
 #: model:ir.model.fields,field_description:mail.field_ir_actions_server__activity_user_field_name
 msgid "User field name"
 msgstr "ឈ្មោះការប្រើប្រាស់ឯកសារ"
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/xml/discuss.xml:157
+#: code:addons/mail/static/src/xml/discuss.xml:278
+#, python-format
+msgid "User is idle"
+msgstr ""
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/xml/discuss.xml:158
+#, python-format
+msgid "User is offline"
+msgstr ""
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/xml/discuss.xml:156
+#: code:addons/mail/static/src/xml/discuss.xml:277
+#, python-format
+msgid "User is online"
+msgstr ""
 
 #. module: mail
 #. openerp-web
@@ -5885,6 +5952,13 @@ msgstr "អ្នកស្ថិតក្នុងប៉ុស្តិ៍<b>#%s
 
 #. module: mail
 #. openerp-web
+#: code:addons/mail/static/src/js/attachment_box.js:132
+#, python-format
+msgid "You are not allowed to upload an attachment here."
+msgstr ""
+
+#. module: mail
+#. openerp-web
 #: code:addons/mail/static/src/js/discuss.js:338
 #, python-format
 msgid ""
@@ -5901,6 +5975,24 @@ msgid ""
 msgstr ""
 
 #. module: mail
+#: cod:addons/mail/models/mail_channel.py:0
+#, python-format
+msgid "You can not remove this partner from this channel"
+msgstr ""
+
+#. module: mail
+#: code:addons/mail/models/mail_channel.py:0
+#, python-format
+msgid "You can not write on the record of other users"
+msgstr ""
+
+#. module: mail
+#: code:addons/mail/models/mail_channel.py:0
+#, python-format
+msgid "You can not write on this field"
+msgstr ""
+
+#. module: mail
 #: code:addons/mail/models/res_users.py:87
 #, python-format
 msgid ""
@@ -5914,6 +6006,14 @@ msgstr ""
 msgid ""
 "You cannot delete those groups, as the Whole Company group is required by "
 "other modules."
+msgstr ""
+
+#. module: mail
+#: code:addons/mail/models/mail_alias.py:89
+#, python-format
+msgid ""
+"You cannot use anything else than unaccented latin characters in the alias "
+"address."
 msgstr ""
 
 #. module: mail
@@ -5939,8 +6039,8 @@ msgstr ""
 #. openerp-web
 #: code:addons/mail/static/src/js/services/mail_notification_manager.js:198
 #, python-format
-msgid "You have been invited to: "
-msgstr "អ្នកត្រូវបានគេអញ្ជើញឱ្យចូលរួម៖"
+msgid "You have been invited to: %s"
+msgstr ""
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_channel_notify_moderation
@@ -6324,15 +6424,23 @@ msgid "to close for"
 msgstr ""
 
 #. module: mail
-#: code:addons/mail/models/mail_thread.py:1074
+#: code:addons/mail/models/mail_thread.py:1081
 #, python-format
 msgid "unknown error"
 msgstr ""
 
 #. module: mail
-#: code:addons/mail/models/mail_thread.py:1014
+#: code:addons/mail/models/mail_thread.py:1021
 #, python-format
 msgid "unknown target model %s"
+msgstr ""
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/js/attachment_box.js:40
+#: code:addons/mail/static/src/js/models/messages/abstract_message.js:52
+#, python-format
+msgid "unnamed"
 msgstr ""
 
 #. module: mail

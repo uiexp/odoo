@@ -99,7 +99,7 @@ class PaymentAcquirerAuthorize(models.Model):
         if values.get('billing_partner_country') and values.get('billing_partner_country') == self.env.ref('base.us', False):
             billing_state = values['billing_partner_state'].code if values.get('billing_partner_state') else ''
 
-        base_url = self.env['ir.config_parameter'].get_param('web.base.url')
+        base_url = self.get_base_url()
         authorize_tx_values = dict(values)
         temp_authorize_tx_values = {
             'x_login': self.authorize_login,
@@ -175,7 +175,8 @@ class PaymentAcquirerAuthorize(models.Model):
             if len(cc_expiry) != 2 or any(not i.isdigit() for i in cc_expiry):
                 return False
             try:
-                if datetime.now().strftime('%y%m') > datetime.strptime('/'.join(cc_expiry), '%m/%y').strftime('%y%m'):
+                expiry_date = datetime.strptime('/'.join(cc_expiry), '%m/%{}'.format("y" if len(cc_expiry[1]) == 2 else "Y")).strftime('%y%m')
+                if datetime.now().strftime('%y%m') > expiry_date:
                     return False
             except ValueError:
                 return False

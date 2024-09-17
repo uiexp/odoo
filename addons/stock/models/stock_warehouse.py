@@ -439,7 +439,7 @@ class Warehouse(models.Model):
         def_values = self.default_get(['reception_steps', 'delivery_steps'])
         reception_steps = vals.get('reception_steps', def_values['reception_steps'])
         delivery_steps = vals.get('delivery_steps', def_values['delivery_steps'])
-        code = vals.get('code') or self.code
+        code = vals.get('code') or self.code or ''
         code = code.replace(' ', '').upper()
         company_id = vals.get('company_id', self.default_get(['company_id'])['company_id'])
         sub_locations = {
@@ -747,9 +747,9 @@ class Warehouse(models.Model):
             'in_type_id': {'default_location_dest_id': input_loc.id},
             'out_type_id': {'default_location_src_id': output_loc.id},
             'pick_type_id': {
-                'active': self.delivery_steps != 'ship_only',
+                'active': self.delivery_steps != 'ship_only' and self.active,
                 'default_location_dest_id': output_loc.id if self.delivery_steps == 'pick_ship' else self.wh_pack_stock_loc_id.id},
-            'pack_type_id': {'active': self.delivery_steps == 'pick_pack_ship'},
+            'pack_type_id': {'active': self.delivery_steps == 'pick_pack_ship' and self.active},
             'int_type_id': {},
         }
 

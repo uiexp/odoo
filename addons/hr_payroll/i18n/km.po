@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-09 10:31+0000\n"
+"POT-Creation-Date: 2019-11-14 07:33+0000\n"
 "PO-Revision-Date: 2018-08-24 09:19+0000\n"
 "Last-Translator: Lux Sok <sok.lux@gmail.com>, 2019\n"
 "Language-Team: Khmer (https://www.transifex.com/odoo/teams/41243/km/)\n"
@@ -151,14 +151,14 @@ msgid ""
 "            payment of the employees. It can be the social security, the\n"
 "            state or anyone that collect or inject money on payslips."
 msgstr ""
-"ការចុះឈ្មោះចូលរួមវិភាគទានគឺជាភាគីទីបីដែលពាក់ព័ន្ធនឹងប្រាក់ខែ។             "
-"ការទូទាត់របស់និយោជិក។ វាអាចជាសន្តិសុខសង្គម។             "
-"រដ្ឋឬនរណាម្នាក់ដែលប្រមូលឬចាក់បញ្ចូលប្រាក់នៅលើក្រដាសប្រាក់។"
+"ការចុះឈ្មោះចូលរួមវិភាគទានគឺជាភាគីទីបីដែលពាក់ព័ន្ធនឹងប្រាក់ខែ។ "
+"            ការទូទាត់របស់និយោជិក។ វាអាចជាសន្តិសុខសង្គម។ "
+"            រដ្ឋឬនរណាម្នាក់ដែលប្រមូលឬចាក់បញ្ចូលប្រាក់នៅលើក្រដាសប្រាក់។"
 
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_res_config_settings__module_account_accountant
-msgid "Account Accountant"
-msgstr "គណនី"
+msgid "Account"
+msgstr "គណនីយ"
 
 #. module: hr_payroll
 #: model_terms:ir.ui.view,arch_db:hr_payroll.res_config_settings_view_form
@@ -1626,6 +1626,12 @@ msgstr "លក្ខខណ្ឌជួរខុសដែលបានកំណត
 #, python-format
 msgid "You cannot create a recursive salary structure."
 msgstr "អ្នកមិនអាចបង្កើតរចនាសម្ព័ន្ធប្រាក់ខែដែលហៅខ្លួនឯងបានទេ។"
+
+#. module: hr_payroll
+#: code:addons/hr_payroll/models/hr_payslip.py:608
+#, python-format
+msgid "You cannot delete a payslip batch which is not draft!"
+msgstr ""
 
 #. module: hr_payroll
 #: code:addons/hr_payroll/models/hr_payslip.py:127

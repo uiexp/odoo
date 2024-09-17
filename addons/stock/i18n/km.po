@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-29 10:08+0000\n"
+"POT-Creation-Date: 2019-11-14 07:33+0000\n"
 "PO-Revision-Date: 2018-08-24 09:25+0000\n"
 "Last-Translator: Lux Sok <sok.lux@gmail.com>, 2019\n"
 "Language-Team: Khmer (https://www.transifex.com/odoo/teams/41243/km/)\n"
@@ -235,6 +235,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:stock.product_template_form_view_procurement_button
 msgid "<span class=\"o_stat_text\">On Hand</span>"
 msgstr "<span class=\"o_stat_text\">មាននៅក្នុងដៃ</span>"
+
+#. module: stock
+#: model_terms:ir.ui.view,arch_db:stock.view_picking_form
+msgid "<span class=\"o_stat_text\">Operations</span>"
+msgstr ""
 
 #. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.report_mrp_line
@@ -711,6 +716,12 @@ msgstr "មាន"
 #: model_terms:ir.ui.view,arch_db:stock.stock_product_search_form_view
 msgid "Available Products"
 msgstr "ផលិតផលដែលមាន"
+
+#. module: stock
+#: code:addons/stock/models/product.py:581
+#, python-format
+msgid "Available quantity should be set to zero before changing type"
+msgstr ""
 
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_stock_move__backorder_id
@@ -1863,6 +1874,7 @@ msgstr "បង្ហាញលេខសៀរៀលនិងលេខឡូតិ
 #: model_terms:ir.ui.view,arch_db:stock.view_move_search
 #: model_terms:ir.ui.view,arch_db:stock.view_picking_form
 #: model_terms:ir.ui.view,arch_db:stock.view_picking_internal_search
+#: model_terms:ir.ui.view,arch_db:stock.view_picking_move_tree
 #: selection:stock.move,state:0 selection:stock.package_level,state:0
 #: selection:stock.picking,state:0 selection:stock.scrap,state:0
 msgid "Done"
@@ -2392,8 +2404,7 @@ msgid ""
 "If this shipment was split, then this field links to the shipment which "
 "contains the already processed part."
 msgstr ""
-"ប្រសិនបើការដឹកជញ្ជូននេះត្រូវបានបំបែកបន្ទាប់មកវាលនេះភ្ជាប់ទៅនឹងការដឹកជញ្ជូនដែលមានផ្នែកដែលបានដំណើរការរួចហើយ។"
-" "
+"ប្រសិនបើការដឹកជញ្ជូននេះត្រូវបានបំបែកបន្ទាប់មកវាលនេះភ្ជាប់ទៅនឹងការដឹកជញ្ជូនដែលមានផ្នែកដែលបានដំណើរការរួចហើយ។ "
 
 #. module: stock
 #: model:ir.model.fields,help:stock.field_stock_move__picking_type_entire_packs
@@ -2490,11 +2501,12 @@ msgstr "ការដឹកទំនិញចូល"
 #: model:ir.model.fields,field_description:stock.field_stock_move__product_uom_qty
 #: model_terms:ir.ui.view,arch_db:stock.view_move_kandan
 #: model_terms:ir.ui.view,arch_db:stock.view_picking_form
+#: model_terms:ir.ui.view,arch_db:stock.view_picking_move_tree
 msgid "Initial Demand"
 msgstr "ដែលតម្រូវការដំបូង"
 
 #. module: stock
-#: code:addons/stock/models/stock_warehouse.py:444
+#: code:addons/stock/models/stock_warehouse.py:453
 #, python-format
 msgid "Input"
 msgstr "ការបញ្ជូលទិន្នន័យ"
@@ -2981,6 +2993,11 @@ msgstr "ដែលមានការភាប់បម្លាស់ទី"
 #: model_terms:ir.ui.view,arch_db:stock.view_inventory_form
 msgid "List view of lines"
 msgstr "ជាបញ្ជីទិដ្ឋភាពដែលយល់ស្របគ្នា"
+
+#. module: stock
+#: model_terms:ir.ui.view,arch_db:stock.view_picking_form
+msgid "List view of operations"
+msgstr ""
 
 #. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.view_location_form
@@ -4113,6 +4130,12 @@ msgid "Please add some items to move."
 msgstr "សូមបន្ថែមធាតុមួយចំនួនដើម្បីផ្លាស់ទី។ "
 
 #. module: stock
+#: code:addons/stock/models/stock_quant.py:92
+#, python-format
+msgid "Please check the following serial number (name, id): "
+msgstr ""
+
+#. module: stock
 #: code:addons/stock/wizard/stock_picking_return.py:132
 #, python-format
 msgid "Please specify at least one non-zero quantity."
@@ -4843,6 +4866,7 @@ msgstr "ការកក់"
 #: model:ir.model.fields,field_description:stock.field_stock_move_line__product_uom_qty
 #: model_terms:ir.ui.view,arch_db:stock.view_move_picking_form
 #: model_terms:ir.ui.view,arch_db:stock.view_picking_form
+#: model_terms:ir.ui.view,arch_db:stock.view_picking_move_tree
 #: model_terms:ir.ui.view,arch_db:stock.view_stock_quant_tree
 #: selection:stock.package_level,state:0
 msgid "Reserved"
@@ -5506,6 +5530,7 @@ msgstr "ឃ្លំាងត្រូវបានផ្លាស់ប្តូ
 #: model_terms:ir.ui.view,arch_db:stock.view_move_picking_tree
 #: model_terms:ir.ui.view,arch_db:stock.view_move_search
 #: model_terms:ir.ui.view,arch_db:stock.view_picking_form
+#: model_terms:ir.ui.view,arch_db:stock.view_picking_move_tree
 msgid "Stock Moves"
 msgstr "ផ្លាស់ទីភាគហ៊ុន"
 
@@ -6275,6 +6300,7 @@ msgstr "ផលិតផលឯកតា"
 #: model_terms:ir.ui.view,arch_db:stock.view_move_tree_receipt_picking
 #: model_terms:ir.ui.view,arch_db:stock.view_move_tree_receipt_picking_board
 #: model_terms:ir.ui.view,arch_db:stock.view_picking_form
+#: model_terms:ir.ui.view,arch_db:stock.view_picking_move_tree
 #: model_terms:ir.ui.view,arch_db:stock.view_stock_move_line_kanban
 #: model_terms:ir.ui.view,arch_db:stock.view_stock_move_line_operation_tree
 msgid "Unit of Measure"
@@ -6622,9 +6648,7 @@ msgstr "ផលិតផលទម្ងន់"
 #: model:ir.model.fields,help:stock.field_stock_location_route__warehouse_selectable
 msgid ""
 "When a warehouse is selected for this route, this route should be seen as "
-"the default route when products pass through this warehouse.  This behaviour"
-" can be overridden by the routes on the Product/Product Categories or by the"
-" Preferred Routes on the Procurement"
+"the default route when products pass through this warehouse."
 msgstr ""
 
 #. module: stock
@@ -6636,14 +6660,12 @@ msgstr ""
 #: model:ir.model.fields,help:stock.field_stock_location_route__product_selectable
 msgid ""
 "When checked, the route will be selectable in the Inventory tab of the "
-"Product form.  It will take priority over the Warehouse route. "
+"Product form."
 msgstr ""
 
 #. module: stock
 #: model:ir.model.fields,help:stock.field_stock_location_route__product_categ_selectable
-msgid ""
-"When checked, the route will be selectable on the Product Category.  It will"
-" take priority over the Warehouse route. "
+msgid "When checked, the route will be selectable on the Product Category."
 msgstr ""
 
 #. module: stock
@@ -7093,4 +7115,10 @@ msgstr "ដំណើរការជំនួសនៃ"
 #. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.view_inventory_form
 msgid "⇒ Set quantities to 0"
+msgstr ""
+
+#. module: stock
+#: code:addons/stock/models/stock_move_line.py:223
+#, python-format
+msgid "Changing the product is only allowed in 'Draft' state."
 msgstr ""
